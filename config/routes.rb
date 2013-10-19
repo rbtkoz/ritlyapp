@@ -1,5 +1,12 @@
 Ritlyapp::Application.routes.draw do
-  # The priority is based upon order of creation: first created -> highest priority.
+
+
+  root "urls#new"
+        resources :urls #TODO: restrict this to just :create, :new and :show
+
+        get '/:code', to: 'urls#redirectors'
+        get '/:code/preview', to: 'urls#preview'
+    # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
